@@ -21,29 +21,3 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-*.class
-*.war
-*.classpath
-*.settings
-*.project
-*.log
-*target
-*metadata
-*Servers
-*.vscode
-*.DS_Store
-*.cmd
-*.springBeans
-.springBeans
-/.DS_Store/
-/DS_Store/
-/build/
-node_modules/
-/node_modules/
-*mvnw
-*.idea
-.idea/*
-*.eml
-*.iml
-

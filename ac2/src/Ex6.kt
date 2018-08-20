@@ -14,6 +14,4 @@ fun main(args: Array<String>) {
     println("Peso idela para mulheres de altura $altura m: $peso")
 }
 
-fun encontraPesoIdeal(altura: Double, formulaCalculo: (Double) -> Double): Double {
-    return formulaCalculo(altura)
-}
+fun encontraPesoIdeal(altura: Double, formulaCalculo: (Double) -> Double) = formulaCalculo(altura)

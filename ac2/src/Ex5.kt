@@ -9,50 +9,31 @@
 */
 
 fun main(args: Array<String>) {
-    var index = retornaIndice(listOf(1,22,3,4,99), ::maiorItemLista)
+    var index = retornaIndice(listOf(1,22,3,4,99), {n1, n2 -> maior(n1, n2)})
     println("Index do maior item: $index")
 
-    index = retornaIndice(listOf(1,22,3,4,99), ::menorItemLista)
+    index = retornaIndice(listOf(1,22,3,4,99), {n1, n2 -> menor(n1, n2)})
     println("Index do menor item: $index")
 
     index = retornaIndice(listOf(1,22,3,4,99), 22)
     println("Index do valor 22: $index")
 }
 
-fun maiorItemLista(lista : List<Int>) : Int? {
+fun maior(n1:Int, n2:Int) = n1 > n2
+fun menor(n1:Int, n2:Int) = n1 < n2
 
-    if (lista.isEmpty()) return null
+fun retornaIndice(lista: List<Int>, comparador: (Int, Int) -> (Boolean)) : Int? {
+   if (lista.isEmpty()) return null
 
-    var maiorItem = lista[0]
+    var itemEncontrado = lista[0]
 
     for (item in lista) {
-        if (item > maiorItem) {
-            maiorItem = item
+        if (comparador(itemEncontrado, item)) {
+            itemEncontrado = item
         }
     }
 
-    return maiorItem
-}
-
-fun menorItemLista(lista : List<Int>) : Int? {
-
-    if (lista.isEmpty()) return null
-
-    var menorItem = lista[0]
-
-    for (item in lista) {
-        if (item < menorItem) {
-            menorItem = item
-        }
-    }
-
-    return menorItem
-}
-
-fun retornaIndice(lista: List<Int>, comparador: (List<Int>) -> (Int?)) : Int? {
-    if (lista.isEmpty()) return null
-
-    return lista.indexOf(comparador(lista))
+    return lista.indexOf(itemEncontrado)
 }
 
 fun retornaIndice(lista: List<Int>, valor: Int) : Int? {
